@@ -1,0 +1,75 @@
+# Tela de gerenciamento
+<Gerenciador_de_Telas>:
+
+    TelaPrincipal:
+        name: 'TelaPrincipal'
+   
+
+
+<TelaPrincipal>:
+           
+    BoxLayout:
+
+        orientation:'vertical'
+        
+        # Centraçização e espaços entre os widgets
+        padding: 50
+        spacing: 50
+
+        # Configurações de cores e imagens
+
+        canvas:
+            Color:
+                rgba: 0.5, 1, 1, 0.5
+            
+            Rectangle: 
+                size: self.size
+                pos: self.pos
+        BoxLayout:
+            orientation: 'vertical'
+            canvas:
+                Color:
+                    rgba: 0.5, 1, 1, 0.3
+                
+                Rectangle: 
+                    size: self.size
+                    pos: self.pos
+                    source: 'LOGONRS.png'
+        Label:
+            text:''
+            size_hint_y: None
+            height: 45
+            
+               
+        Button:
+            text: 'EletricTools'
+            size_hint_y: None
+            height: 60
+
+
+            
+        Button:
+            text: 'MecanicTools'
+            size_hint_y: None
+            height: 60
+
+        Button:
+            text: 'SeveralTolls'
+            size_hint_y: None
+            height: 60
+
+        Button:
+            text: 'Sair'
+            size_hint_y: None
+            height: 60
+            on_release: app.stop()
+
+
+
+
+            
+
+
+
+
+    
