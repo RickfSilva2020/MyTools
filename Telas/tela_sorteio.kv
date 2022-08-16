@@ -2,8 +2,17 @@
     orientation: 'vertical'
     padding: 35
     spacing: 20
+    canvas:
+        Color:
+            rgba: 0.5, 0.7, 1, 0.5
+        Rectangle: 
+            size: self.size
+            pos: self.pos
+            #source: 'LOGONRS.png'
     Label:
-        text: "DIGITE OS ELEMENTOS DO SORTEIO"
+        markup:True
+        text: "[color=ffff80][font=times][i][b]DIGITE OS ELEMENTOS DO SORTEIO[/b][/i][/font][/color]"
+        font_size: 20
         size_hint_y: None
         height: 70
     BoxLayout:
@@ -11,20 +20,56 @@
         height: 250
         TextInput:
             text: "Digite aqui "
+            id: element
     BoxLayout:
+        size_hint_y: None
+        height:15
+        Label:
+            markup: True
+            text: "[color=ffff80][font=times][i][b]ESCOLHA O TIPO DE SORTEIO[/b][/i][/font][/color]"
+    BoxLayout:
+         
        
         GridLayout:
             cols: 2
             Label:
-                text: 'Sortear Sequência'
-
+                markup: True
+                text: "[color=ffff80][font=times][i][b]Sequência[/b][/i][/font][/color]"
+                font_size: 20
             CheckBox:
-                on_active: root.checkbox_click(self, self.active)
+                id: seq
+                group: 'sort'
+                pos_hint: {'x': 0, 'y': 0.5}
+                size_hint: [0.2, 0.08]
+                on_active: root.sequenciacheckbox_click(self, self.active)
+                
 
         GridLayout:
             cols: 2
             Label:
-                text: 'Sortio Ùnico'
-
+                markup: True
+                text: "[color=ffff80][font=times][i][b]Sorteio Único[/b][/i][/font][/color]"
+                font_size: 20
             CheckBox:
-                on_active: root.checkbox_click(self, self.active)
+                id: uni
+                group: 'sort'
+                color: 'FCFCFC'
+                pos_hint: {'x': 0.3, 'y': 0.5}
+                size_hint: [0.5, 0.08]
+                on_active: root.unicocheckbox_click(self, self.active)
+    BoxLayout:
+        Label:
+            id: output_label
+            text: ''
+    BoxLayout:
+
+        spacing:10
+        
+        Button:
+            text:'SORTEAR'
+            on_release: root.sorteio(self)
+
+        
+        Button:
+            text:'CANCELAR'
+            on_release: app.stop()

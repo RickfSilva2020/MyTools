@@ -36,6 +36,13 @@
                     pos: self.pos
                     source: 'LOGONRS.png'
         Label:
+            text:'RS Tools'
+            color: 0, 0, 1, 1
+            font_size: 60
+            size_hint_y: None
+            height: 60   
+                     
+        Label:
             text:''
             size_hint_y: None
             height: 45
@@ -43,23 +50,28 @@
                
         Button:
             text: 'EletricTools'
+            font_size: 35
             size_hint_y: None
-            height: 60
+            height: 100
 
 
             
         Button:
             text: 'MecanicTools'
             size_hint_y: None
-            height: 60
+            height: 100
 
         Button:
             text: 'SeveralTolls'
             size_hint_y: None
-            height: 60
+            height: 100
+            
+        Label:
+            test:''
 
         Button:
-            text: 'Sair'
+            markup: True
+            text: '[b]Sair[/b]'
             size_hint_y: None
             height: 60
             on_release: app.stop()
