@@ -3,34 +3,42 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 import random as rd
+from time import sleep as sl
 
 
 class Sorteio(BoxLayout):
     
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        
+        pass
+    
         
     def sequenciacheckbox_click(self, seq, value, *args):
         
-        self.seq = seq
+        
         
         if value == True:
             
-            seq == True
+            self.ids.sequencia = True
+            self.ids.sequencia = seq
             self.ids.output_label.text = 'Sequência selecionada'
             
      
     def unicocheckbox_click(self, uni, value, *args):
         
-        self.uni = uni
+        
         
         if value == True:
             
-            uni == True
+            self.ids.unico = True
+            self.ids.unico = uni
             self.ids.output_label.text = 'Sorteio único selecionado' 
             
     def sorteio(self, *args):
         
         lista = []
-        n = str(self.ids.element).upper().replace(' ', '_')
+        n = str(self.ids.element.text).upper().replace(' ', '_')
 
 
 
@@ -39,42 +47,38 @@ class Sorteio(BoxLayout):
 
         for i in n1:
             lista.append(i)
-        print(f'Os elemanentos digitados foram {lista}.')
+        
+        self.ids.output_label.text = f'Os elemanentos digitados foram {lista}.'
 
 
         c = 0
-        if self.uni == True:
-            box = BoxLayout(orientation = 'vertical')
-            botoes = BoxLayout(spacing = 10, padding= 10)
-
-            res = rd.choice(lista)
-            Popup(title= 'Processando!!', content = box, size_hint= (None, None), size= (200, 150) )
-            sl(2)
-            Popup(title= 'O SORTEADO FOI...', content = box, size_hint= (None, None), size= (200, 150) )
-            sl(2)
-            Popup(title= f'{res}', font_size= 40 , content = box, size_hint= (None, None), size= (200, 150))
+        if self.ids.unico.active:
             
+            res = rd.choice(lista)
+            
+            print(res)
+          
 
 
-        if self.seq == True:
+        if self.ids.sequencia.active:
 
             res = rd.sample(lista, len(lista))
             for e in res:
-                self.ids.output_label.text = f'{e}'
-                self.ids.output_label.text ='Clique em ok para o próximo'
+                
+                self.ids.output_label.text = f'{e} Clique em ok para o próximo'
                 c += 1
                 
-                Popup(title= 'Processando!!', content = box, size_hint= (None, None), size= (200, 150) )
+               # Popup(title= 'Processando!!', size_hint= (None, None), size= (200, 150) )
                 sl(2)
-                Popup(title= 'O SORTEADO FOI...', content = box, size_hint= (None, None), size= (200, 150) )
+               # Popup(title= 'O SORTEADO FOI...', size_hint= (None, None), size= (200, 150) )
                 
                 sl(2)
-                Popup(title= f'{c}º - {e}', font_size= 40 , content = box, size_hint= (None, None), size= (200, 150))
+               # Popup(title= f'{c}º - {e}', font_size= 40 , content = box, size_hint= (None, None), size= (200, 150))
                
                 
 
         else:
-            Popup(title= 'Escolha o tipo de sorteio', font_size= 40 , content = box, size_hint= (None, None), size= (200, 150))
+            self.ids.output_label.text = 'Selecione o tipo de sorteio'
             
 
 
