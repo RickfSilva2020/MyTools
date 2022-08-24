@@ -1,4 +1,5 @@
-import string
+
+
 #Código para cálculos relacionados á motores
 
 #Cálculo de corrente
@@ -47,58 +48,130 @@ while True:
         uni = str(input('O MOTOR É EM CV, KW OU watts: ')).strip().upper()
         if uni == 'CV' or uni == 'KW' or uni == 'W':
             break
-  
-
-a = list(string.ascii_letters)
            
 while True:
     
-    p = str(input('INFORME A POTÊNCIA DO MOTOR: '))
-    
-    if p in str(a):
-        print('possui letras')
-        #print('Informe apenas números')
-        #p = str(input('INFORME A POTÊNCIA DO MOTOR: '))
+        p = str(input('INFORME A POTÊNCIA DO MOTOR: '))
+        if p.isalpha() == False:
+            break
+            
+        else:
+            print('Informe um valor válido')
+            p = str(input('INFORME A POTÊNCIA DO MOTOR: '))
+            if p.isalpha() == False:
+                break
+while True:
+         
+    v = str(input('INFORME A TENSÃO DO MOTOR:  '))
+    if v.isalpha() == False:
+        break
+            
     else:
+        print('Informe um valor válido')
+        v = str(input('INFORME A TENSÃO DO MOTOR:  '))
+        if v.isalpha() == False:
+            break
+        
+while True:
+    
+    i = str(input('INFORME A CORRENTE DO MOTOR: '))
+    if i.isalpha() == False:
         break
         
-    
+    else:
+        print('Informe um valor válido')
+        i = str(input('INFORME A CORRENTE DO MOTOR: '))
+        if i.isalpha() == False:
+            break
         
-       
-v = str(input('INFORME A TENSÃO DO MOTOR:  '))
-i = str(input('INFORME A CORRENTE DO MOTOR: '))
-
-if mot == 'T' and p == '':
-    i = float(i)   
-    v = int(v)
-    pw = i * v * 1.732050808 * 0.85 * 0.85
-    pcv = pw / 736
-if uni == 'CV':
     
-    print(f'A potência do motor é de {pcv:.2f} CV')
-    
-if uni == 'KW' or uni == 'W':
-    
-    print(f'A potência do motor é de {pw / 1000:.2f} Kw')
-
-
-if mot == 'M' and p == '':
-    i = float(i)   
-    v = int(v)
-    pw = i * v  * 0.85 * 0.85
-    pcv = pw / 736
-
-
-    
-if mot == 'M' and p == '':
-    i = float(i)   
-    v = int(v)
-    pw = i * v  * 0.85 * 0.85
-    pcv = pw / 736
-
-if uni == 'KW':
-    
-    print(f'A potência do motor é de {pw / 1000:.2f} Kw')
+if mot == 'T':
+    if p == '':
+        i = float(i)   
+        v = int(v)
+        pw = i * v * 1.732050808 * 0.85 * 0.85
+        pcv = pw / 736
+        if uni == 'CV':
+            
+            print(f'A potência do MIT é de {pcv:.2f} CV')
+            
+        if uni == 'KW' or uni == 'W':
+            
+            print(f'A potência do MIT é de {pw / 1000:.2f} Kw')
+    elif v == '':
+        i = float(i)
+        p = float(p)
+        if uni == 'CV':
+            pw = p * 736
+            vc = pw / (i * 1.732050808 * 0.85 * 0.85)
+            print(f'A tensão do MIT é {vc:.0f} Volts')
+        elif uni == 'KW':
+            pw = p * 1000
+            vc = pw / (i * 1.732050808 * 0.85 * 0.85)
+            print(f'A tensão do MIT é {vc:.0f} Volts')
+        elif  uni == 'W':
+            pw = p
+            vc = pw / (i * 1.732050808 * 0.85 * 0.85)
+            print(f'A tensão do MIT é {vc:.0f} Volts')
+    elif i == '':
+        v = int(v)
+        p = float(p)
+        if uni == 'CV':
+            pw = p * 736
+            i = pw / (v * 1.732050808 * 0.85 * 0.85 )
+            print(f'A corrente do MIT é {i:.2f} Amperes')
+        elif uni == 'KW':
+            pw = p * 1000
+            i = pw / (v * 1.732050808 * 0.85 * 0.85 )
+            print(f'A corrente do MIT é {i:.2f} Amperes')
+        elif uni == 'W':
+            pw = p 
+            i = pw / (v * 1.732050808 * 0.85 * 0.85 )
+            print(f'A corrente do MIT é {i:.2f} Amperes')
+                
+if mot == 'M':
+    if p == '':
+        i = float(i)   
+        v = int(v)
+        pw = i * v * 0.85 * 0.85
+        pcv = pw / 736
+        if uni == 'CV':
+            
+            print(f'A potência do MIM é de {pcv:.2f} CV')
+            
+        if uni == 'KW' or uni == 'W':
+            
+            print(f'A potência do MIM é de {pw / 1000:.2f} Kw')
+    elif v == '':
+        i = float(i)
+        p = float(p)
+        if uni == 'CV':
+            pw = p * 736
+            vc = pw / (i * 0.85 * 0.85)
+            print(f'A tensão do MIM é {vc:.0f} Volts')
+        elif uni == 'KW':
+            pw = p * 1000
+            vc = pw / (i * 0.85 * 0.85)
+            print(f'A tensão do MIM é {vc:.0f} Volts')
+        elif  uni == 'W':
+            pw = p
+            vc = pw / (i * 0.85 * 0.85)
+            print(f'A tensão do MIM é {vc:.0f} Volts')
+    elif i == '':
+        v = int(v)
+        p = float(p)
+        if uni == 'CV':
+            pw = p * 736
+            i = pw / (v * 0.85 * 0.85 )
+            print(f'A corrente do MIM é {i:.2f} Amperes')
+        elif uni == 'KW':
+            pw = p * 1000
+            i = pw / (v * 0.85 * 0.85 )
+            print(f'A corrente do MIM é {i:.2f} Amperes')
+        elif uni == 'W':
+            pw = p 
+            i = pw / (v * 0.85 * 0.85 )
+            print(f'A corrente do MIM é {i:.2f} Amperes')
 
 
 

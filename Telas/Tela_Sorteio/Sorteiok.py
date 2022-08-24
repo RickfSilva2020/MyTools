@@ -95,23 +95,6 @@ class Sorteio(BoxLayout):
                  
             
         
-                
-           
-            
-            
-            
-            
-                
-               
-
-        #else:
-            #self.ids.output_label.text = 'Selecione o tipo de sorteio'
-            
-
-
-
-            
-       
         
 class Tela_sorteio(App):
     def build(self):
