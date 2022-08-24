@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.label import Label
@@ -34,16 +33,16 @@ class Sorteio(BoxLayout):
             
         
             pop = Popup(title = 'Analizando resultado...', content = box, size_hint= (None, None),
-                    size=(300, 180), background_color=(0.3, 0.5, 1, 0.5))
+                    size=(600, 360), background_color=(0.3, 0.5, 1, 0.5))
             pop2 = Popup(title = 'ESCOLHIDO', content = box1, size_hint= (None, None),
-                    size=(320, 180), background_color=(0.4, 0.5 , 0.7 ,1))
+                    size=(640, 400), background_color=(0.4, 0.5 , 0.7 ,1))
             
                  
             ta = Button(text= 'VAI!!', on_release = pop2.open)
             exit = Button(text= 'Exit',on_press = pop.dismiss,  on_release = pop2.dismiss)
             texto = Label(text= 'Processando...')
-            texto2 = Label(text= 'O SORTEADO FOI...', font_size= 17)
-            texto3 = Label(text = f'{res}',color =(1,0,0,1), font_size= 25)
+            texto2 = Label(text= 'O SORTEADO FOI...')
+            texto3 = Label(text = f'{res}',color =(1,0,0,1), font_size= 60)
             
             botao1.add_widget(Label(text = ''))
             botao1.add_widget(ta)
@@ -75,10 +74,10 @@ class Sorteio(BoxLayout):
                 botao1 = BoxLayout()
                 
                 pop = Popup(title = 'Analizando sequência...', content = box, size_hint= (None, None),
-                    size=(300, 180), background_color=(0.3, 0.5, 1, 0.5))
+                    size=(600, 360), background_color=(0.3, 0.5, 1, 0.5))
                 
                 pop1 = Popup(title = '', content = box1, size_hint= (None, None),
-                    size=(300, 180), background_color=(0.3, 0.5, 1, 0.5))
+                    size=(600, 360), background_color=(0.3, 0.5, 1, 0.5))
                             
                 ss = Button(text= 'Vai', on_release = pop.dismiss)
                 
@@ -95,7 +94,7 @@ class Sorteio(BoxLayout):
                 c += 1
                  
             
-        pop1.open()
+        
                 
            
             

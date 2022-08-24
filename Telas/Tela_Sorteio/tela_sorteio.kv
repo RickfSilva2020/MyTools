@@ -1,4 +1,5 @@
 <Sorteio>:
+    
     orientation: 'vertical'
     padding: 35
     spacing: 20
@@ -10,23 +11,31 @@
             pos: self.pos
             #source: 'LOGONRS.png'
     Label:
-        markup:True
-        text: "[color=ffff80][font=times][i][b]DIGITE OS ELEMENTOS DO SORTEIO[/b][/i][/font][/color]"
-        font_size: 20
+         
+        markup: True
+        text: '[color=00ff00][b][i]RSTools[/i][/b][/color]'
+        font_size: 60
         size_hint_y: None
-        height: 70
+        height: 100
+        
+    Label:
+        markup:True
+        text: "[color=ffff80][i][b]DIGITE OS ELEMENTOS DO SORTEIO[/b][/i][/color]"
+        font_size: 40
+        size_hint_y: None
+        height: 100
     BoxLayout:
         size_hint_y: None
-        height: 250
+        height: 370
         TextInput:
             text: "Digite aqui "
             id: element
     BoxLayout:
         size_hint_y: None
-        height:15
+        height:100
         Label:
             markup: True
-            text: "[color=ffff80][font=times][i][b]ESCOLHA O TIPO DE SORTEIO[/b][/i][/font][/color]"
+            text: "[color=ffff80][i][b]ESCOLHA O TIPO DE SORTEIO[/b][/i][/color]"
     BoxLayout:
          
        
@@ -34,8 +43,8 @@
             cols: 2
             Label:
                 markup: True
-                text: "[color=ffff80][font=times][i][b]Sequência[/b][/i][/font][/color]"
-                font_size: 20
+                text: "[color=ffff80][i][b]Sequência[/b][/i][/color]"
+                font_size: 40
             CheckBox:
                 id: sequencia
                 group: 'sort'
@@ -48,8 +57,8 @@
             cols: 2
             Label:
                 markup: True
-                text: "[color=ffff80][font=times][i][b]Sorteio Único[/b][/i][/font][/color]"
-                font_size: 20
+                text: "[color=ffff80][i][b]Sorteio Único[/b][/i][/color]"
+                font_size: 40
             CheckBox:
                 id: unico
                 group: 'sort'
@@ -62,8 +71,10 @@
             id: output_label
             text: ''
     BoxLayout:
+        size_hint_y: None
+        height: 100
 
-        spacing:10
+        spacing:20
         
         Button:
             text:'SORTEAR'
