@@ -3,10 +3,11 @@ from kivy.uix.boxlayout import BoxLayout
 
 class Cmotores(BoxLayout):
     def Calc_motores(self,**kwargs):
+    super.
         pass
     
-class Tela_calc(App):
+class Telacalc(App):
     def build(self):
         return Cmotores()
         
-Tela_calc().run()
+Telacalc().run()
