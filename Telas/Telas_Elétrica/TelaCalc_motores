@@ -3,8 +3,12 @@ from kivy.uix.boxlayout import BoxLayout
 
 class Cmotores(BoxLayout):
     def Calc_motores(self,**kwargs):
-    super.
         pass
+    def escolhaPotencia(self):
+        potencia = self.ids.pot.text
+        print(potencia)
+        
+    
     
 class Telacalc(App):
     def build(self):
