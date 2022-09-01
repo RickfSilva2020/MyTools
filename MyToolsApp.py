@@ -141,6 +141,13 @@ class Sorteio(Screen):
                 pop.open()
 
                 c += 1
+                
+class Cmotores(Screen):
+    def Calc_motores(self,**kwargs):
+        pass
+    def escolhaPotencia(self):
+        potencia = self.ids.pot.text
+        print(potencia)
 
 
 class MyToolsApp(App):
