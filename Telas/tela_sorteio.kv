@@ -1,0 +1,85 @@
+<Sorteio>:
+    orientation: 'vertical'
+    padding: 35
+    spacing: 20
+    canvas:
+        Color:
+            rgba: 0.5, 0.7, 1, 0.5
+        Rectangle: 
+            size: self.size
+            pos: self.pos
+            #source: 'LOGONRS.png'
+    Label:
+         
+        markup: True
+        text: '[color=00ff00][b][i]RSTools[/i][/b][/color]'
+        font_size: 60
+        size_hint_y: None
+        height: 100
+        
+    Label:
+        markup:True
+        text: "[color=ffff80][i][b]DIGITE OS ELEMENTOS DO SORTEIO[/b][/i][/color]"
+        font_size: 40
+        size_hint_y: None
+        height: 100
+    BoxLayout:
+        size_hint_y: None
+        height: 370
+        TextInput:
+            text: "Digite aqui "
+            id: element
+    BoxLayout:
+        size_hint_y: None
+        height:100
+        Label:
+            markup: True
+            text: "[color=ffff80][i][b]ESCOLHA O TIPO DE SORTEIO[/b][/i][/color]"
+    BoxLayout:
+         
+       
+        GridLayout:
+            cols: 2
+            Label:
+                markup: True
+                text: "[color=ffff80][i][b]Sequência[/b][/i][/color]"
+                font_size: 40
+            CheckBox:
+                id: sequencia
+                group: 'sort'
+                pos_hint: {'x': 0, 'y': 0.5}
+                size_hint: [0.2, 0.08]
+                
+                
+
+        GridLayout:
+            cols: 2
+            Label:
+                markup: True
+                text: "[color=ffff80][i][b]Sorteio Único[/b][/i][/color]"
+                font_size: 40
+            CheckBox:
+                id: unico
+                group: 'sort'
+                color: 'FCFCFC'
+                pos_hint: {'x': 0.3, 'y': 0.5}
+                size_hint: [0.5, 0.08]
+                
+    BoxLayout:
+        Label:
+            id: output_label
+            text: ''
+    BoxLayout:
+        size_hint_y: None
+        height: 100
+
+        spacing:20
+        
+        Button:
+            text:'SORTEAR'
+            on_release: root.sorteio(self)
+
+        
+        Button:
+            text:'CANCELAR'
+            on_release: app.stop()

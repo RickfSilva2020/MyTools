@@ -207,103 +207,281 @@
 
 <Cmotores>:
     BoxLayout:
+        GridLayout:
+            cols: 1
 
-        title:'EletricTolls_Motores'
-        id:'Cmotores'
-        orientation: 'vertical'
-        canvas:
+            # Inserindo Action Bar
+            ActionBar:
+                canvas:
+                    Color:
+                        rgba: 0.3, 0.7, 0.4, 0.5
+                    Rectangle: 
+                        size: self.size
+                        pos: self.pos
+                ActionView:
+                    ActionPrevious:
+                        title:'Cálculo de Motores'
+                        on_release: app.root.current = 'TelaPrincipal'
+                   
+                    ActionButton:
 
-            Color:
-                rgba: 0.3, 0.5, 0.3, 1
+                        canvas:
+                            Color:
+                                rgba: 1, 0, 0, 0.5
+                            Rectangle: 
+                                size: self.size
+                                pos: self.pos
+                        
+                        text:'Sair'
+                        on_release: app.stop()
 
-            Rectangle:
-                size: self.size
-                pos: self.pos
-                source: 'Marron.jpg'
-
-        Label:
-                
-            markup: True
-            text: '[color=00ff00][b][i]RSTools[/i][/b][/color]'
-            font_size: 20
-            size_hint_y: None
-            height: 100
-
-        Label:
-            text:'CÀLCULOS GERAIS DE MOTORES CA'
-        Label:
-            text:'Escola o Tipo de motor'
-
-        RelativeLayout:
-            canvas:
-                Color:
-                    rgba: 0.2, 0.5, 0.3, 1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-                    source: 'Marron.jpg'
-                
-            
-            Label:
-                pos_hint: {'x': 0.1, 'y': 0.5}
-                size_hint: [0.2, 0.08]
-                font_size: '14sp'
-                markup: True
-                text: "[color=ffff80][i][b]Trifásico[/b][/i][/color]"
-                #font_size: 40
-            CheckBox:
-                id: tri
-                group: 'sort'
-                pos_hint: {'x': 0.3, 'y': 0.5}
-                size_hint: [0.2, 0.08]
-
-                    
-
-            Label:
-                pos_hint: {'x': 0.6, 'y': 0.5}
-                size_hint: [0.2, 0.08]
-                font_size: '14sp'
-                markup: True
-                text: "[color=ffff80][i][b]Monofásico[/b][/i][/color]"
-                #font_size: 40
-            CheckBox:
-                id: mono
-                group: 'sort'
-                color: 'FCFCFC'
-                pos_hint: {'x': 0.6, 'y': 0.5}
-                size_hint: [0.5, 0.08]
-
-        BoxLayout:
-            size_hint_y: None
-            height: 50
-            padding: 5
-            spacing: 5
-            Label: 
-                text:'Potência do Motor'
-
-            TextInput:
-                id: tinput
-                size_hint_x: None
-                width: 70
-                
-
-            Spinner:
-                id: pot
-                values: 'Cv', 'Kw', 'Watts'
-                text: ''
-                size_hint_x: None
-                width: 70
-                on_text:
-                    root.escolhaPotencia()
-                
-
-
-
-
-
-
-                    
-
+            BoxLayout:
+                title:'EletricTolls_Motores'
+                id:'Cmotores'
+                orientation: 'vertical'
+                canvas:
+          
+                    Color:
+                        rgba: 0.3, 0.5, 0.3, 1
+          
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos
+                        source: 'Marron.jpg'
+          
+                Label:
+                          
+                    markup: True
+                    text: '[color=00ff00][b][i]RSTools[/i][/b][/color]'
+                    font_size: 60
+                    size_hint_y: None
+                    height: 130
+          
+                Label:
+                    markup: True
+                    text:'[color=#ffff33][b]CÁLCULOS GERAIS DE MOTORES CA[/b][/color]'
+                    font_size: 40
+                    size_hint_y: None
+                    height: 100
+                Label:
+                    markup: True
+                    text:'[color=#ffff33]Escola o Tipo de motor[/color]'
+                    font_size : 40
+                    size_hint_y: None
+                    height: 120
+                BoxLayout:
+                       
+                    size_hint_y: None
+                    height: 100
+          
+                    RelativeLayout:
+                         
+                        canvas:
+                            Color:
+                                rgba: 0.2, 0.5, 0.3, 1
+                            Rectangle:
+                                size: self.size
+                                pos: self.pos
+                                source: 'Marron.jpg'
+                      
+                          
+                      
+                        Label:
+                            pos_hint: {'x': 0.1, 'y': 0.5}
+                            size_hint: [0.2, 0.08]
+                            font_size: '14sp'
+                            markup: True
+                            text: "[color=ffff80][i][b]Trifásico[/b][/i][/color]"
+                              
+                          
+                        CheckBox:
+                            id: tri
+                            group: 'sort'
+                            pos_hint: {'x': 0.3, 'y': 0.5}
+                            size_hint: [0.2, 0.08]
+          
+                              
+          
+                        Label:
+                            pos_hint: {'x': 0.6, 'y': 0.5}
+                            size_hint: [0.2, 0.08]
+                            font_size: '14sp'
+                            markup: True
+                            text: "[color=ffff80][i][b]Monofásico[/b][/i][/color]"
+                          #font_size: 40
+                        CheckBox:
+                            id: mono
+                            group: 'sort'
+                            color: 'FCFCFC'
+                            pos_hint: {'x': 0.6, 'y': 0.5}
+                            size_hint: [0.5, 0.08]
+          
+                BoxLayout:
+                    orientation: 'vertical'
+                    spacing: 30
+                    padding:20
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 80
+                        Label:
+                            markup: True
+                            text:'[i]Potência do Motor[/i]'
+                            font_size: 35
+                        Label:
+                            size_hint_x: None
+                            width: 60
+                            text: ''
+                             
+                        BoxLayout:
+                            spacing: 10
+                            
+                            Label:
+                                text:'' 
+                                size_hint_x: None
+                                width: 30
+                                    
+                            
+               
+                            TextInput:
+                                id: tinput
+                                multiline: False
+                                write_tab: False
+                                input_filter: 'float'
+                                font_size: 40 
+                                size_hint_x: None
+                                width: 100
+                         
+                            Spinner:
+                                id: pot
+                                values: 'Cv', 'Kw', 'Watts'
+                                text: 'Escolha'
+                                size_hint_x: None
+                                width: 140
+                                on_text:
+                                    root.escolhaPotencia()
+                                  
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 80
+                        Label:
+                            size_hint_x: None
+                            width: 20
+                            text:''
+                        
+                        Label: 
+                            markup: True
+                            text:'[i]Tensão de Alimentação[/i]'
+                            font_size: 35
+                        
+                        BoxLayout:
+                            
+                            Label:
+                                text:''
+                            
+                            TextInput:
+                                id: tinput
+                                multiline: False
+                                write_teb: False
+                                input_filter: 'int'
+                                font_size: 40 
+                                size_hint_x: None
+                                width: 100
+                            Label:
+                                text: 'Volts'
+                                size_hint_x: None
+                                width: 170
+                              
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 80
+                        Label: 
+                            markup: True
+                            text:'[i]Corrente Nominal[/i]'
+                            font_size: 35
+                        Label:
+                            size_hint_x: None
+                            width: 120
+                            text:''
+                        
+               
+                        TextInput:
+                            id: tinput
+                            multiline: False
+                            write_tab: False
+                            input_filter: 'float'
+                            font_size: 40 
+                            size_hint_x: None
+                            width: 100
+                        Label:
+                            text: 'Ampéres'
+                            size_hint_x: None
+                            width: 170
+                     
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 80
+                        Label: 
+                            markup: True
+                            text:'[i]Rendimento[/i]'
+                            font_size: 35
+               
+                        TextInput:
+                            id: tinput
+                            text:'87'
+                            font_size: 40 
+                            size_hint_x: None
+                            width: 100
+                        Label:
+                            text: '%'
+                            size_hint_x: None
+                            width: 170
+                              
+                    BoxLayout:
+                        size_hint_y: None
+                        height: 80
+                        Label: 
+                            text:'Fator de Potência'
+               
+                        TextInput:
+                            id: tinput
+                            text: '0.87'
+                            font_size: 40 
+                            size_hint_x: None
+                            width: 100
+                        Label:
+                            text: 'CosFi'
+                            size_hint_x: None
+                            width: 170
+                              
+                BoxLayout:
+                    size_hint_y: None
+                    height: 200
+                    Label:
+                        text: ''  
+                              
+                BoxLayout:
+                    size_hint_y: None
+                    height: 140
+                    padding: 30
+                      
+                          
+                    Button:
+                        text: 'Calcular'
+                        id: calc
+                    Button:
+                        text:'CANCELAR'
+                        on_release: app.root.current= 'TelaPrincipal'
+                      
+                          
+                        
+          
+          
+          
+          
+          
+          
+                              
+     
 
 
 

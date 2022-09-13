@@ -24,7 +24,7 @@ class TelaPrincipal(Screen):
         botoes = BoxLayout(padding=10, spacing=10)
 
         pop = Popup(title='Deseja mesmo sair?', content=box, size_hint=(None, None),
-                    size=(300, 180))
+                    size=(600,300))
 
         sim = Button(text='Sim', on_release=App.get_running_app().stop)
         nao = Button(text='Não', on_release=pop.dismiss)
@@ -144,7 +144,9 @@ class Sorteio(Screen):
                 
 class Cmotores(Screen):
     def Calc_motores(self,**kwargs):
+        super().__init__(self, **kwargs)
         pass
+        
     def escolhaPotencia(self):
         potencia = self.ids.pot.text
         print(potencia)
