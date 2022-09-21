@@ -1,0 +1,32 @@
+<TelaMenuEletrica>:
+   
+
+    GridLayout:
+        cols: 1
+
+    # Inserindo Action Bar
+        ActionBar:
+            canvas:
+                Color:
+                    rgba: 179, 107, 0, 0.5
+                Rectangle: 
+                    size: self.size
+                    pos: self.pos
+            ActionView:
+                ActionPrevious:
+                    title:'Janela 1'
+                    on_release: app.root.current = 'TelaPrincipal'
+            
+                ActionButton:
+
+                    canvas:
+                        Color:
+                            rgba: 1, 0, 0, 0.5
+                        Rectangle: 
+                            size: self.size
+                            pos: self.pos
+                
+                    text:'Sair'
+                    on_release: app.stop()
+
+

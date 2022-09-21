@@ -55,7 +55,7 @@
             size_hint_y: None
             height: 45
             
-               
+        
         Button:
             text: 'EletricTools'
             font_size: 35
@@ -85,7 +85,39 @@
             size_hint_y: None
             height: 60
             on_release: root.confirmacao_de_saida()
+<SubMenuEletric>:
+     BoxLayout:
 
+        GridLayout:
+            cols: 1
+
+            # Inserindo Action Bar
+            ActionBar:
+                canvas:
+                    Color:
+                        rgba: 0.3, 0.7, 0.4, 0.5
+                    Rectangle: 
+                        size: self.size
+                        pos: self.pos
+                ActionView:
+                    ActionPrevious:
+                        title:'Janela 1'
+                        on_release: app.root.current = 'TelaPrincipal'
+                   
+                    ActionButton:
+
+                        canvas:
+                            Color:
+                                rgba: 1, 0, 0, 0.5
+                            Rectangle: 
+                                size: self.size
+                                pos: self.pos
+                        
+                        text:'Sair'
+                        on_release: app.stop()
+
+            BoxLayout:
+                orientation: 'vertical'
 <Sorteio>:
     BoxLayout:
 
@@ -144,6 +176,7 @@
                     font_size: 40
                     size_hint_y: None
                     height: 100
+                    
                 BoxLayout:
                     size_hint_y: None
                     height: 370
@@ -212,6 +245,8 @@
 
             # Inserindo Action Bar
             ActionBar:
+                size_hint_y: None
+                height: 30
                 canvas:
                     Color:
                         rgba: 0.3, 0.7, 0.4, 0.5
@@ -250,29 +285,47 @@
                         source: 'Marron.jpg'
           
                 Label:
-                          
                     markup: True
                     text: '[color=00ff00][b][i]RSTools[/i][/b][/color]'
-                    font_size: 60
+                    font_size: 35
                     size_hint_y: None
-                    height: 130
+                    height:70
           
                 Label:
                     markup: True
                     text:'[color=#ffff33][b]CÁLCULOS GERAIS DE MOTORES CA[/b][/color]'
-                    font_size: 40
+                    font_size: 25
                     size_hint_y: None
-                    height: 100
-                Label:
-                    markup: True
-                    text:'[color=#ffff33]Escola o Tipo de motor[/color]'
-                    font_size : 40
+                    height: 70
+                    
+                BoxLayout:
                     size_hint_y: None
-                    height: 120
+                    height: 50
+                    
+                    canvas:
+                        Color:
+                            rgba: 0, 102, 0, 0.4
+                        Rectangle:
+                            size: self.size
+                            pos: self.pos
+                    ShadowLabel:
+
+                        text: '[b]Dados do Motor[/b]'
+                        markup: True
+                        decal: 5, -5
+                        tint: .5, .5, 1, .5
+                        color: 1, 0, 0, 1
+                        pos: self.parent.pos
+                        size: self.parent.size
+                        
+   
+                        font_size : 30
+                        size_hint_y: None
+                        height: 80
                 BoxLayout:
                        
                     size_hint_y: None
-                    height: 100
+                    height: 70
           
                     RelativeLayout:
                          
@@ -288,8 +341,8 @@
                       
                         Label:
                             pos_hint: {'x': 0.1, 'y': 0.5}
-                            size_hint: [0.2, 0.08]
-                            font_size: '14sp'
+                            size_hint: [0.2, 0.12]
+                            font_size: '22sp'
                             markup: True
                             text: "[color=ffff80][i][b]Trifásico[/b][/i][/color]"
                               
@@ -304,8 +357,8 @@
           
                         Label:
                             pos_hint: {'x': 0.6, 'y': 0.5}
-                            size_hint: [0.2, 0.08]
-                            font_size: '14sp'
+                            size_hint: [0.1, 0.08]
+                            font_size: '22sp'
                             markup: True
                             text: "[color=ffff80][i][b]Monofásico[/b][/i][/color]"
                           #font_size: 40
@@ -318,15 +371,15 @@
           
                 BoxLayout:
                     orientation: 'vertical'
-                    spacing: 30
+                    spacing: 10
                     padding:20
                     BoxLayout:
                         size_hint_y: None
-                        height: 80
+                        height: 50
                         Label:
                             markup: True
                             text:'[i]Potência do Motor[/i]'
-                            font_size: 35
+                            font_size: 20
                         Label:
                             size_hint_x: None
                             width: 60
@@ -347,22 +400,22 @@
                                 multiline: False
                                 write_tab: False
                                 input_filter: 'float'
-                                font_size: 40 
+                                font_size: 20
                                 size_hint_x: None
-                                width: 100
+                                width: 50
                          
                             Spinner:
                                 id: pot
                                 values: 'Cv', 'Kw', 'Watts'
                                 text: 'Escolha'
                                 size_hint_x: None
-                                width: 140
+                                width: 80
                                 on_text:
                                     root.escolhaPotencia()
                                   
                     BoxLayout:
                         size_hint_y: None
-                        height: 80
+                        height: 50
                         Label:
                             size_hint_x: None
                             width: 20
@@ -371,7 +424,7 @@
                         Label: 
                             markup: True
                             text:'[i]Tensão de Alimentação[/i]'
-                            font_size: 35
+                            font_size: 20
                         
                         BoxLayout:
                             
@@ -383,24 +436,24 @@
                                 multiline: False
                                 write_teb: False
                                 input_filter: 'int'
-                                font_size: 40 
+                                font_size: 20
                                 size_hint_x: None
-                                width: 100
+                                width: 50
                             Label:
                                 text: 'Volts'
                                 size_hint_x: None
-                                width: 170
+                                width: 100
                               
                     BoxLayout:
                         size_hint_y: None
-                        height: 80
+                        height: 50
                         Label: 
                             markup: True
                             text:'[i]Corrente Nominal[/i]'
-                            font_size: 35
+                            font_size: 20
                         Label:
                             size_hint_x: None
-                            width: 120
+                            width: 50
                             text:''
                         
                
@@ -409,69 +462,116 @@
                             multiline: False
                             write_tab: False
                             input_filter: 'float'
-                            font_size: 40 
+                            font_size: 20 
                             size_hint_x: None
-                            width: 100
+                            width: 50
                         Label:
                             text: 'Ampéres'
                             size_hint_x: None
-                            width: 170
+                            width: 100
                      
                     BoxLayout:
                         size_hint_y: None
-                        height: 80
+                        height: 50
                         Label: 
                             markup: True
                             text:'[i]Rendimento[/i]'
-                            font_size: 35
+                            font_size: 20
+                        Label:
+                            size_hint_x: None
+                            width: 100
+                            text:''
                
                         TextInput:
                             id: tinput
                             text:'87'
-                            font_size: 40 
+                            font_size: 20
                             size_hint_x: None
-                            width: 100
+                            width: 50
                         Label:
                             text: '%'
                             size_hint_x: None
-                            width: 170
+                            width: 100
                               
                     BoxLayout:
                         size_hint_y: None
-                        height: 80
-                        Label: 
-                            text:'Fator de Potência'
+                        height: 50
+                        Label:
+                            markup: True 
+                            text:'[i]Fator de Potência[/i]'
+                            font_size: 20
+                        Label:
+                            size_hint_x: None
+                            width: 50
+                            text: ''
+                            
                
                         TextInput:
                             id: tinput
                             text: '0.87'
-                            font_size: 40 
+                            font_size: 20
                             size_hint_x: None
                             width: 100
                         Label:
                             text: 'CosFi'
                             size_hint_x: None
-                            width: 170
+                            width: 100
                               
                 BoxLayout:
                     size_hint_y: None
-                    height: 200
+                    height: 120
                     Label:
                         text: ''  
                               
                 BoxLayout:
                     size_hint_y: None
-                    height: 140
+                    height: 50
                     padding: 30
+                    spacing:  20
                       
                           
                     Button:
-                        text: 'Calcular'
+                        text: 'CALCULAR'
                         id: calc
+                        background_color: (48/255, 84/255, 150/255, 1)
+                        background_normal:''
+                        
                     Button:
                         text:'CANCELAR'
+                        background_color: (48/255, 84/255, 150/255, 1)
+                        background_normal:''
+                        
                         on_release: app.root.current= 'TelaPrincipal'
-                      
+                        
+<ShadowLabel>:
+
+    canvas.before:
+
+        Color:
+
+            rgba: root.tint
+
+
+
+        Rectangle:
+
+            pos:
+
+                int(self.center_x - self.texture_size[0] / 2.) + root.decal[0],\
+
+                int(self.center_y - self.texture_size[1] / 2.) + root.decal[1]
+
+
+
+            size: root.texture_size
+
+            texture: root.texture
+
+
+
+        Color:
+
+            rgba: 1, 1, 1, 1                                                                                                                       
                           
                         
           

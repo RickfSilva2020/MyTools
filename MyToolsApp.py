@@ -8,6 +8,7 @@ from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.image import Image
+from kivy.properties import ListProperty
 
 
 class Gerenciador_de_Telas(ScreenManager):
@@ -50,6 +51,12 @@ class MecanicTools(Screen):
 
 class SeveralTools(Screen):
     pass
+
+class SubMenuEletric(Screen):
+    pass
+class SubMenuMec(Screen):
+    pass
+
 
 
 class Sorteio(Screen):
@@ -150,8 +157,14 @@ class Cmotores(Screen):
     def escolhaPotencia(self):
         potencia = self.ids.pot.text
         print(potencia)
+        
+class ShadowLabel(Label):
 
+    decal = ListProperty([0, 0])
 
+    tint = ListProperty([1, 1, 1, 1])
+    
+    
 class MyToolsApp(App):
     def build(self):
         return Gerenciador_de_Telas()
