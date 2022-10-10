@@ -86,7 +86,7 @@
             height: 60
             on_release: root.confirmacao_de_saida()
 <SubMenuEletric>:
-     BoxLayout:
+    BoxLayout:
 
         GridLayout:
             cols: 1
@@ -396,7 +396,7 @@
                             
                
                             TextInput:
-                                id: tinput
+                                id: pot
                                 multiline: False
                                 write_tab: False
                                 input_filter: 'float'
@@ -405,7 +405,7 @@
                                 width: 50
                          
                             Spinner:
-                                id: pot
+                                id: uni
                                 values: 'Cv', 'Kw', 'Watts'
                                 text: 'Escolha'
                                 size_hint_x: None
@@ -432,7 +432,7 @@
                                 text:''
                             
                             TextInput:
-                                id: tinput
+                                id: volt
                                 multiline: False
                                 write_teb: False
                                 input_filter: 'int'
@@ -511,7 +511,8 @@
                             text: '0.87'
                             font_size: 20
                             size_hint_x: None
-                            width: 100
+                            width: 50
+
                         Label:
                             text: 'CosFi'
                             size_hint_x: None
@@ -519,13 +520,15 @@
                               
                 BoxLayout:
                     size_hint_y: None
-                    height: 120
+                    height: 60
+                    
                     Label:
+                        id: textout
                         text: ''  
                               
                 BoxLayout:
                     size_hint_y: None
-                    height: 50
+                    height: 100
                     padding: 30
                     spacing:  20
                       
@@ -535,6 +538,7 @@
                         id: calc
                         background_color: (48/255, 84/255, 150/255, 1)
                         background_normal:''
+                        on_press: root.press()
                         
                     Button:
                         text:'CANCELAR'

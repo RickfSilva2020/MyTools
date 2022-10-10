@@ -1,11 +1,13 @@
 <TelaMenuEletrica>:
-   
-
+    
     GridLayout:
+        
         cols: 1
 
     # Inserindo Action Bar
         ActionBar:
+            size_hint_y: None
+            height: 30
             canvas:
                 Color:
                     rgba: 179, 107, 0, 0.5
@@ -14,7 +16,7 @@
                     pos: self.pos
             ActionView:
                 ActionPrevious:
-                    title:'Janela 1'
+                    title:'MyTools'
                     on_release: app.root.current = 'TelaPrincipal'
             
                 ActionButton:
@@ -28,5 +30,27 @@
                 
                     text:'Sair'
                     on_release: app.stop()
+            
+        BoxLayout:
+            orientation: 'vertical' 
+            padding: '5px'
+            spacing: '5px'
+
+            Label:
+                text: ''
+            Button:
+                text: 'Cálculos Elétricos'
+            
+            Button:
+                text: 'Cálculos Mecânicos'
+            
+            Button:
+                text: 'Ferramentas'
+
+
+        BoxLayout:
+
+            Button:
+                text: 'Cancelar'
 
 
