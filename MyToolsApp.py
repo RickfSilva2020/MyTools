@@ -199,64 +199,78 @@ class Cmotores(Screen):
             
               
               
-        uni = str(self.ids.uni.values)
+        uni = str(self.ids.uni.text)
             
-        #if uni == 'CV' or uni == 'KW' or uni == 'WATTS':
-        print(uni)
-                
-        #else: 
+        if uni == 'Cv':  
+            print('Unidade Cavalo')
+            
+        elif uni == 'Kw':
+            print('Unidade Quilowatts')
+            
+        elif  uni == 'Watts':
+            print('Unidade Watts')
+            
+        else: 
+            print('Nenhuna unidade escolhida')
           #  mostrar = self.ids.textout.text='Escolha uma unidade para o motor'
                 
-        '''        
-        while True:
+           
+       
             
-                p = str(self.ids.pot)
-                if p.isalpha() == False:
-                    break
-                    
-                else:
-                    mostrar = self.ids.textout.text= 'Informe um valor válido'
-                    p = str(self.ids.pot)
-                    if p.isalpha() == False:
-                        break
-        while True:
-                
-            v = str(self.ids.volt)
-            if v.isalpha() == False:
-                break
-                    
-            else:
-                mostrar = self.ids.textout.text = 'Informe um valor válido'
-                v = str(self.ids.volt)
-                if v.isalpha() == False:
-                    break
-                
-        while True:
+        p = str(self.ids.pot.text)
+        
+        if p.isalpha() == False:
+            print(p)
             
-            i = str(input('INFORME A CORRENTE DO MOTOR: '))
-            if i.isalpha() == False:
-                break
+        else:
+            mostrar = self.ids.textout.text = 'Informe um valor válido'
+            print('Informe um valor válido,')
+            
+            
+        
+        
                 
-            else:
-                print('Informe um valor válido')
-                i = str(input('INFORME A CORRENTE DO MOTOR: '))
-                if i.isalpha() == False:
-                    break
+        v = str(self.ids.volt.text)
+        if v.isalpha() == False:
+            print(v)
+                
+        else:
+            mostrar = self.ids.textout.text = 'Informe um valor válido'
+            print('Informe um valor válido,')
+            
+              
+        
+            
+        i = str(self.ids.corr.text)
+        if i.isalpha() == False:
+            print(i)
+            
+        else:
+            print('Informe um valor válido')
+        
+        rend = str(self.ids.rend.text) 
+        fpot = str(self.ids.fpot.text) 
                 
             
-        if mot == 'T':
+        if mottri.active:
             if p == '':
                 i = float(i)   
                 v = int(v)
-                pw = i * v * 1.732050808 * 0.85 * 0.85
+                rdn = float(rend)
+                rdn1 = rdn / 100
+                fp = float(fpot)
+                pw = i * v * 1.732050808 * rdn1 * fp
                 pcv = pw / 736
-                if uni == 'CV':
-                    
+                
+                if uni == 'Cv':
+                    mostrar = self.ids.textout.text = f'A potência do MIT é de {pcv:.2f} CV'
                     print(f'A potência do MIT é de {pcv:.2f} CV')
                     
-                if uni == 'KW' or uni == 'W':
-                    
+                if uni == 'Kw' or uni == 'Watts':
+                    mostrar = self.ids.textout.text = f'A potência do MIT é de {pw / 1000:.2f} Kw'
                     print(f'A potência do MIT é de {pw / 1000:.2f} Kw')
+                    
+            '''        
             elif v == '':
                 i = float(i)
                 p = float(p)
@@ -339,7 +353,7 @@ class Cmotores(Screen):
         
     def escolhaPotencia(self):
         potencia = self.ids.pot.text
-        print(potencia)
+        #/print(potencia)
         
 class ShadowLabel(Label):
 

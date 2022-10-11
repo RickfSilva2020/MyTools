@@ -406,7 +406,7 @@
                          
                             Spinner:
                                 id: uni
-                                values: 'Cv', 'Kw', 'Watts'
+                                values: ['Cv', 'Kw', 'Watts']
                                 text: 'Escolha'
                                 size_hint_x: None
                                 width: 80
@@ -458,7 +458,7 @@
                         
                
                         TextInput:
-                            id: tinput
+                            id: corr
                             multiline: False
                             write_tab: False
                             input_filter: 'float'
@@ -483,7 +483,7 @@
                             text:''
                
                         TextInput:
-                            id: tinput
+                            id: rend
                             text:'87'
                             font_size: 20
                             size_hint_x: None
@@ -507,7 +507,7 @@
                             
                
                         TextInput:
-                            id: tinput
+                            id: fpot
                             text: '0.87'
                             font_size: 20
                             size_hint_x: None
